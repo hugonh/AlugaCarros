@@ -7,6 +7,10 @@
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+  <ion-list>
+    <ion-item *ngFor="let carro of carros">
+   <ion-label>{{carro.nome}}</ion-label>  
+   <ion-label>{{carro.preco}}</ion-label>  
+  </ion-item>
+  </ion-list>>
 </ion-content>

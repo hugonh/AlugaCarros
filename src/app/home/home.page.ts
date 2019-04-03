@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpErrorResponse} from '@angular/common/http';
+//import {HttpClient, HttpErrorResponse} from '@angular/common/http';
+//import { Message } from '@angular/compiler/src/i18n/i18n_ast';
+import { HttpErrorResponse } from '@angular/common/http';
 import { Carro } from '../modelos/Carro';
 import { LoadingController, AlertController, NavController } from '@ionic/angular';
 import { CarrosService } from '../providers/carros.service';
@@ -13,7 +15,7 @@ import { NavigationExtras } from '@angular/router';
 export class HomePage implements OnInit {
  
  
-public carros:Carro[];
+public carros: Carro[];
 
 constructor (private loadingCtrl:LoadingController,
               private alertCtrl: AlertController,
@@ -33,7 +35,7 @@ await loading.present();
 
 
 
- // this.http.get<Carro[]>('http://localhost:8080/api/carro/listaTodos')
+ //this.http.get<Carro[]>('http://localhost:8080/api/carro/listaTodos')
  this.carrosService.lista()
   .subscribe(
     (carros)=>{
@@ -43,7 +45,7 @@ await loading.present();
     async (err: HttpErrorResponse)=>{
       console.log('Deu erro ' + err.status);
       const al = await this.alertCtrl.create({
-        header:'Erro',
+        header:'Erro!',
         message: 'Erro ao listar carros' ,
         buttons: [{text:'Ok'}]
       });
@@ -58,7 +60,7 @@ await loading.present();
     )
   
 }
-selecionaCarro(carro:Carro){
+selecionaCarro(carro: Carro){
   console.log("Carro selecionado: "+carro.nome);
 
 let extras: NavigationExtras = {
@@ -72,4 +74,5 @@ let extras: NavigationExtras = {
 }
   
 }
+
 

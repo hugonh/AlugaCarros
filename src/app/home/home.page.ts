@@ -40,7 +40,7 @@ await loading.present();
   .subscribe(
     (carros)=>{
       this.carros = carros;
-     loading.dismiss(); // corta a mensagem de loading
+    // loading.dismiss(); // corta a mensagem de loading
     },
     async (err: HttpErrorResponse)=>{
       console.log('Deu erro ' + err.status);
